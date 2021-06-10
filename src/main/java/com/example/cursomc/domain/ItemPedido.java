@@ -1,4 +1,4 @@
-	package com.example.cursomc.domain;
+package com.example.cursomc.domain;
 
 import java.io.Serializable;
 
@@ -10,9 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class ItemPedido implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
-	
+
 	@JsonIgnore
 	@EmbeddedId
 	private ItemPedidoPK id = new ItemPedidoPK();
@@ -33,18 +32,26 @@ public class ItemPedido implements Serializable {
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
-	
+
 	public double getSubTotal() {
 		return (preco - desconto) * quantidade;
 	}
+
 	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
-	
-	
+
+	public void setPedido(Pedido pedido) {
+		id.setPedido(pedido);
+	}
+
 	public Produto getProduto() {
 		return id.getProduto();
+	}
+
+	public void setProduto(Produto produto) {
+		id.setProduto(produto);
 	}
 
 	public ItemPedidoPK getId() {
@@ -103,6 +110,5 @@ public class ItemPedido implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
 }
