@@ -33,7 +33,7 @@ public class Cliente implements Serializable{
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo;
-	private String imageUrl;
+
 	
 	@JsonIgnore
 	private String senha;
@@ -149,14 +149,6 @@ public class Cliente implements Serializable{
 		perfis.add(perfil.getCod());
 	}
 	
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
 
 	@Override
 	public int hashCode() {
